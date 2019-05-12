@@ -47,6 +47,10 @@ app.post('/api', (req, res) => {
                 Message: err.message,
             });
         });
+});
+
+app.get('/api/recipes', (req, res) => {
+    res.send(req.headers.uri);
 })
 
 app.listen(3000, () => {

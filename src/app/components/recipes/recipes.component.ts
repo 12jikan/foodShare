@@ -8,6 +8,7 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class RecipesComponent implements OnInit {
 
+  objKeys = Object.keys;
   recipesArr: any;
 
   constructor(private _recipes: RecipeService) { }

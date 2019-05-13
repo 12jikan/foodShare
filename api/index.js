@@ -1,6 +1,5 @@
 //stuff that I need to import
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 // models go here
@@ -19,8 +18,6 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-
-// mongoose.connect(uri, { useNewUrlParser: true });
 
 app.use('/api', recipesRouter);
 

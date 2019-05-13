@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 // create Schemas and models here
 const Schema = mongoose.Schema;
 
-const articleSchema = new Schema({
+// create object for the model
+const recipeSchema = new Schema({
     _id: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
+    date: Object,
     name: { 
         type: String,
         required: true,
@@ -21,6 +23,6 @@ const articleSchema = new Schema({
     }
 });
 
-const Person = mongoose.model('Article', articleSchema, 'recipes');
-
-module.exports = Person;
+// creates the actual model
+const recipes = mongoose.model('Recipe', recipeSchema, 'recipes');
+module.exports = recipes;

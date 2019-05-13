@@ -8,16 +8,16 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class RecipesComponent implements OnInit {
 
-  objKeys = Object.keys;
+  objKeys = Object.values;
   recipesArr: any;
 
   constructor(private _recipes: RecipeService) { }
 
   ngOnInit() {
-    this.getRecipes();
+    this.getAllRecipes();
   }
 
-  getRecipes() {
+  getAllRecipes() {
     this._recipes.getRecipes().subscribe(data => {
       this.recipesArr = data;
       console.log(this.recipesArr);

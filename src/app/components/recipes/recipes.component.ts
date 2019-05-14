@@ -16,12 +16,11 @@ export class RecipesComponent implements OnInit {
   ngOnInit() {
     this.getAllRecipes();
   }
-
   
   getAllRecipes() {
     this._recipes.getAllRecipes().subscribe(data => {
       
-      this.allRecipesArr =  v;
+      this.allRecipesArr;
       console.log(this.allRecipesArr);
 
     });

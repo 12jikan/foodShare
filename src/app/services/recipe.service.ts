@@ -15,4 +15,8 @@ export class RecipeService {
     return this._http.get<Object>("http://localhost:3000/api/recipesAll");
   }
 
+  postRecipe() {
+    return this._http.get<Object>("http://localhost:3000/api/");
+  }
+
 }

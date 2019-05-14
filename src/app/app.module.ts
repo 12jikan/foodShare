@@ -9,6 +9,7 @@ import { CreateRecipeComponent } from './components/create-recipe/create-recipe.
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { from } from 'rxjs';
+import { RecipeComponent } from './components/recipes/child/recipe/recipe.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { from } from 'rxjs';
     RecipesComponent,
     CreateRecipeComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    RecipeComponent
   ],
   imports: [
     BrowserModule,

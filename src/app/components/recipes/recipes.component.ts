@@ -9,7 +9,7 @@ import { RecipeService } from '../../services/recipe.service';
 export class RecipesComponent implements OnInit {
 
   objKeys = Object.values;
-  recipesArr: any;
+  allRecipesArr: Object;
 
   constructor(private _recipes: RecipeService) { }
 
@@ -17,11 +17,13 @@ export class RecipesComponent implements OnInit {
     this.getAllRecipes();
   }
 
+  
   getAllRecipes() {
-    this._recipes.getRecipes().subscribe(data => {
-      this.recipesArr = data;
-      console.log(this.recipesArr);
-    });
-  }
+    this._recipes.getAllRecipes().subscribe(data => {
+      
+      this.allRecipesArr =  v;
+      console.log(this.allRecipesArr);
 
+    });
+  };
 }

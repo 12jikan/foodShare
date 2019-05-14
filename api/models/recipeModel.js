@@ -9,11 +9,12 @@ const recipeSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
-    date: Object,
     name: { 
         type: String,
         required: true,
     },
+    date: Object,
+    title: String,
     desc: { 
         type: String,
         required: true,

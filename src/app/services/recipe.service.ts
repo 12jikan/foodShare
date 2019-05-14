@@ -7,12 +7,12 @@ import { HttpClient } from '@angular/common/http';
 
 export class RecipeService {
 
-  recipesArr = [];
+  allRecipesArr = [];
 
   constructor(private _http: HttpClient) { }
 
-  getRecipes() {
-    return this._http.get<Object>("http://localhost:3000/api/recipes");
+  getAllRecipes() {
+    return this._http.get<Object>("http://localhost:3000/api/recipesAll");
   }
 
 }

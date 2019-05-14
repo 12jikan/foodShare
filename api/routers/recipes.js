@@ -18,15 +18,23 @@ const recipeModel = require('../models/recipeModel.js');
 mongoose.connect(uri, { useNewUrlParser: true });
 
 router.get('/', (req, res) => {
-    res.send(`Welcome to the Recipes API use "api/recipes" route to post + get data`);
+    res.send(`Welcome to the Recipes API use "api/recipes" route to post/get data`);
 });
 
-router.get('/recipes', (req, res) => {
+router.get('/recipesAll', (req, res) => {
+    
     const _recipe = recipeModel.find();
+
     _recipe.exec((err, obj) => {
         if(err) console.error(err);
         res.send(obj);
     });
+
+});
+
+router.get('/recipe', (req, res) => {
+    res.send('works dude!');
+    console.log(req);
 });
 
 router.post('/recipes', (req, res) => {
@@ -35,6 +43,7 @@ router.post('/recipes', (req, res) => {
         _id: new ObjectId,
         name: req.body.name,
         date: Date.now(),
+        title: req.body.title,
         desc: req.body.desc,
         steps: req.body.steps,
     };

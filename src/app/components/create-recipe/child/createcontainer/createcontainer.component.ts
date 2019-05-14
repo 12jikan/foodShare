@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipeService } from '../../../../services/recipe.service';
+import { AssetService } from '../../../../services/assets.service';
 
 @Component({
   selector: 'app-createcontainer',
@@ -7,22 +9,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatecontainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _recipes: RecipeService, private _assets: AssetService) { }
 
   postObj: Object = {
-    name: String,
-    title: String,
-    desc: String,
-    steps: {
-      step_1: "yo",
-    }
+    name:  "",
+    title: "",
+    desc:  "",
+    steps: Object,
   }
 
+  tools: Object;
+  ingredients: Object;
+  
+  _tool: any="Select dropdown";
+  _ingredients: any ="Select dropdown";
+
+  toolsTable = [];
+  ingredientsTable = [];
+
   ngOnInit() {
+    this.getIngredients();
+    this.getTools();
   }
 
   postRecipe() {
-    console.log(this.postObj);
+    this._recipes.postRecipe(this.postObj);
+  }
+
+  getIngredients() {
+    this._assets.getIngredients().subscribe(data => {
+      this.ingredients = data.assets;
+      console.log(this.ingredients);
+    });
+  }
+
+  getTools() {
+    this._assets.getTools().subscribe(data => {
+      this.tools = data.assets;
+      console.log(this.tools);
+    });
+  }
+
+  addIngredients() {
+    if(this.ingredientsTable.find(data => data == this._ingredients));
+    
+    this.ingredientsTable.push(this._ingredients);
+    console.log(this._ingredients, this.ingredientsTable);
+  }
+
+  addTools() {
+    console.log(this._tool)
   }
 
 }

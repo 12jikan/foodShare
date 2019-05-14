@@ -3,14 +3,14 @@
   <div class="field">
     <label class="label">Name</label>
     <div class="control">
-      <input [(ngModel)]="postObj.name" class="input" type="text" placeholder="Name">
+      <input [(ngModel)]="postObj.name" class="input" type="text" placeholder="Name" required>
     </div>
   </div>
 
   <div class="field">
     <label class="label">Title</label>
     <div class="control">
-      <input [(ngModel)]="postObj.title" class="input" type="text" placeholder="Title">
+      <input [(ngModel)]="postObj.title" class="input" type="text" placeholder="Title" required>
     </div>
   </div>
 
@@ -21,16 +21,44 @@
     </div>
   </div>
 
-  <div class="field">
-    <label class="label">Subject</label>
+  <div class="field has-text-centered">
+    <h1>Select your tools and ingredients below</h1>
+  </div>
+
+  <div class="field is-grouped">
+
     <div class="control">
       <div class="select">
-        <select>
+        <select [(ngModel)]="_ingredients">
           <option>Select dropdown</option>
-          <option>With options</option>
+          <option *ngFor="let item of ingredients" [ngValue]="item">{{ item }}</option>
         </select>
       </div>
     </div>
+
+    <div class="control">
+      <button (click)="addIngredients()" class="button is-info is-outlined is-rounded">Add</button>
+    </div>
+
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <div class="select">
+        <select [(ngModel)]="_tool">
+          <option>Select dropdown</option>
+          <option *ngFor="let item of tools" [ngValue]="item">{{ item }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control">
+      <button (click)="addTools()" class="button is-info is-outlined is-rounded">Add</button>
+    </div>
+  </div>
+
+  <div class="field">
+    <a class="tag is-light is-size-7">Can't find what you're looking for?</a>
   </div>
 
   <div class="field is-grouped">

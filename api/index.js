@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 // routers go here
 const recipesRouter = require('./routers/recipes');
+const assetsRouter = require('./routers/assets');
 
 // declarative stuff
 const app = express();
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api', recipesRouter);
+app.use('/api', assetsRouter);
 
 
 app.listen(3000, () => {

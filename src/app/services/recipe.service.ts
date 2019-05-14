@@ -14,9 +14,11 @@ export class RecipeService {
   getAllRecipes() {
     return this._http.get<Object>("http://localhost:3000/api/recipesAll");
   }
-
-  postRecipe() {
-    return this._http.get<Object>("http://localhost:3000/api/");
+  
+  postRecipe(postObj: Object) {
+    this._http.post<Object>("http://localhost:3000/api/recipes", postObj).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

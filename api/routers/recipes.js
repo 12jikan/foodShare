@@ -32,11 +32,6 @@ router.get('/recipesAll', (req, res) => {
 
 });
 
-router.get('/recipe', (req, res) => {
-    res.send('works dude!');
-    console.log(req);
-});
-
 router.post('/recipes', (req, res) => {
     // create the article object
     let recipeObj = {

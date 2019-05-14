@@ -26,6 +26,7 @@ export class CreatecontainerComponent implements OnInit {
 
   toolsTable = [];
   ingredientsTable = [];
+  stepsArr = [];
 
   ngOnInit() {
     this.getIngredients();

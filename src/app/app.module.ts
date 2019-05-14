@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { from } from 'rxjs';
 import { RecipeComponent } from './components/recipes/child/recipe/recipe.component';
 import { CreatecontainerComponent } from './components/create-recipe/child/createcontainer/createcontainer.component';
+import { StepsListComponent } from './components/create-recipe/child/steps-list/steps-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CreatecontainerComponent } from './components/create-recipe/child/creat
     NavbarComponent,
     HomeComponent,
     RecipeComponent,
-    CreatecontainerComponent
+    CreatecontainerComponent,
+    StepsListComponent
   ],
   imports: [
     BrowserModule,

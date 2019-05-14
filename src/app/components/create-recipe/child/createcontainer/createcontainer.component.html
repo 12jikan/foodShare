@@ -61,8 +61,30 @@
     <a class="tag is-light is-size-7">Don't See What You're Looking For?</a>
   </div>
 
-  <div class="field box">
-    
+  <div class="field">
+    <div class="columns">
+      
+      <div class="column">
+        <h1>Tools:</h1>
+        <p *ngIf="toolsTable.length == 0" class="">(none)</p>
+
+        <div *ngFor="let item of toolsTable">
+          <p class="tag">{{item}}</p>
+          <br />
+        </div>
+      </div>
+
+      <div class="column">
+        <h1 class="">Ingredients</h1>
+        <p *ngIf="ingredientsTable.length == 0" class="">(none)</p>
+        
+        <div *ngFor="let item of ingredientsTable">
+          <p class="tag">{{item}}</p>
+          <br />
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <div class="field is-grouped">

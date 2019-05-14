@@ -32,6 +32,7 @@ export class CreatecontainerComponent implements OnInit {
     this.getTools();
   }
 
+  // http request
   postRecipe() {
     this._recipes.postRecipe(this.postObj);
   }
@@ -44,21 +45,50 @@ export class CreatecontainerComponent implements OnInit {
   }
 
   getTools() {
+    
     this._assets.getTools().subscribe(data => {
       this.tools = data.assets;
       console.log(this.tools);
     });
+
   }
 
+  // component methods
   addIngredients() {
-    if(this.ingredientsTable.find(data => data == this._ingredients));
     
-    this.ingredientsTable.push(this._ingredients);
-    console.log(this._ingredients, this.ingredientsTable);
+    if(!this.ingredientsTable.includes(this._ingredients)) {
+      
+      if(this._ingredients == "Select dropdown") {
+        console.log("can't add this!")
+        return true;
+      }
+
+      this.ingredientsTable.push(this._ingredients);
+      console.log(this.ingredientsTable);
+
+    }
+    else {
+      console.log('it\'s already in there!')
+    }
+
   }
 
   addTools() {
-    console.log(this._tool)
+
+    if(!this.toolsTable.includes(this._tool)) {
+      
+      if(this._tool == "Select dropdown") {
+        console.log("can't add this!");
+        return true;
+      }
+
+      this.toolsTable.push(this._tool);
+      console.log(this.toolsTable);
+    }
+    else {
+      console.log('it\'s already in there!')
+    }
+
   }
 
 }
